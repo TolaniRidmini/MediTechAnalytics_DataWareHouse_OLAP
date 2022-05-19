@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>DWBI Assignment 02</Database>
+    <Server>DESKTOP-T49GT92\MSSQLSERVER1</Server>
+    <ConnectionString>Data Source=DESKTOP-T49GT92\MSSQLSERVER1;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>eN+TC96lEAuXGGFa4JfWDKUdd8s=5/16/2022 7:20:22 PM5/16/2022 6:48:16 PM</TimeStamp>
+        <ID>
+          <String>DS_MediTech_Analytics DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>RVxiFeyI+jDM8lbbSSxpxexWm+Y=5/17/2022 1:17:47 AM5/16/2022 6:51:48 PM</TimeStamp>
+        <ID>
+          <String>DSV_MediTech_Analytics DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ykxZorC8UuorG+QPjeNkP+FOzG8=5/17/2022 1:31:51 AM5/16/2022 7:04:56 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bOvQomhd4j8Efbbl33wY3Ab5ASE=5/16/2022 7:17:44 PM5/16/2022 7:04:56 PM</TimeStamp>
+        <ID>
+          <String>Dim Appointment</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4/OFCQ10d7QPrJOCvikodzrprV8=5/16/2022 7:17:44 PM5/16/2022 7:04:56 PM</TimeStamp>
+        <ID>
+          <String>Dim Clinic</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>QCXdTe9gagf+euK50qJtC/LdmTQ=5/16/2022 7:17:44 PM5/16/2022 7:04:56 PM</TimeStamp>
+        <ID>
+          <String>Dim Patient</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+Q1etdOnmeJBQ+PB/2nS7WNxaGk=5/16/2022 7:17:44 PM5/16/2022 7:04:56 PM</TimeStamp>
+        <ID>
+          <String>Dim Test</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>DqDElYlyr9g5WugPLlltOiuG2qE=5/17/2022 1:31:51 AM5/16/2022 7:04:56 PMphaUVTkemki4al/F4c9+v2LXLLg=5/16/2022 7:04:56 PM5/16/2022 7:04:56 PM</TimeStamp>
+        <ID>
+          <String>Cube_MediTech_Analytics</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Role</Type>
+        <TimeStamp>a/0ubelQB4A0X0Ow4sW0d84QBn0=5/17/2022 12:57:05 AM5/17/2022 12:20:58 AM</TimeStamp>
+        <ID>
+          <String>Role</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>7u9l+ZNoJzJYjP1C3yamTlwGzMY=5/17/2022 12:57:05 AM5/16/2022 6:44:05 PM</TimeStamp>
+      <ID>
+        <String>DWBI Assignment 02</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2022-05-17T16:57:50.9Z</LastDeployed>
+</DeploymentSnapshot>

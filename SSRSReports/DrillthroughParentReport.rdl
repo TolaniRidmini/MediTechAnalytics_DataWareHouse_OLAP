@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource1">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=DESKTOP-T49GT92\MSSQLSERVER1;Initial Catalog=MediTech_Analytics_DW</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>03892109-948e-4068-836d-3dcb9de3eeca</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DataSource2">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=DESKTOP-T49GT92\MSSQLSERVER1;Initial Catalog=GlobalSuperStore_DW</ConnectString>
+        <IntegratedSecurity>true</IntegratedSecurity>
+      </ConnectionProperties>
+      <rd:SecurityType>Integrated</rd:SecurityType>
+      <rd:DataSourceID>73463f93-2d19-4bf5-9737-3a76ca5db2e5</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT
+  DimTest.TestName
+  ,DimTest.[Result]
+  ,FactAttendance.TestPrice
+  ,FactAttendance.TotalAmount
+  ,DimDate.YearName
+FROM
+  FactAttendance
+  INNER JOIN DimDate
+    ON FactAttendance.Appoinment_DateKey = DimDate.DateKey
+  INNER JOIN DimTest
+    ON FactAttendance.TestKey = DimTest.TestSK</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="DimTest" ColumnName="TestName" />
+              <ColumnExpression ColumnOwner="DimTest" ColumnName="Result" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="TestPrice" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="TotalAmount" />
+              <ColumnExpression ColumnOwner="DimDate" ColumnName="MonthName" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="FactAttendance" />
+              <Join Type="INNER JOIN" ColumnOwner="DimDate">
+                <On>
+                  <From ColumnOwner="FactAttendance" ColumnName="Appoinment_DateKey" />
+                  <To ColumnOwner="DimDate" ColumnName="DateKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DimTest">
+                <On>
+                  <From ColumnOwner="FactAttendance" ColumnName="TestKey" />
+                  <To ColumnOwner="DimTest" ColumnName="TestSK" />
+                </On>
+              </Join>
+            </Joins>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="TestName">
+          <DataField>TestName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Result">
+          <DataField>Result</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TestPrice">
+          <DataField>TestPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="YearName">
+          <DataField>YearName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT
+  FactAttendance.NoOfDays
+  ,FactAttendance.Appoinment_Date
+  ,DimPatient.Gender
+  ,DimPatient.Age
+  ,DimPatient.Country
+  ,DimPatient.[State]
+  ,DimPatient.City AS [DimPatient City]
+  ,DimPatient.Zip
+  ,DimPatient.Address
+  ,DimPatient.Email
+  ,DimPatient.ContactNo
+  ,DimPatient.Occupation
+  ,DimHospital.HospitalName
+  ,DimHospital.HospitalType
+  ,DimHospital.City AS [DimHospital City]
+  ,DimPatient.PatientSK
+  ,DimDate.[Month]
+  ,DimAppointment.TypeOfAddmission
+FROM
+  FactAttendance
+  INNER JOIN DimDate
+    ON FactAttendance.Appoinment_DateKey = DimDate.DateKey
+  INNER JOIN DimPatient
+    ON FactAttendance.PatientKey = DimPatient.PatientSK
+  INNER JOIN DimAppointment
+    ON FactAttendance.AppoinmentKey = DimAppointment.AppoinmentSK AND DimPatient.PatientSK = DimAppointment.PatientKey
+  INNER JOIN DimHospital
+    ON DimAppointment.HospitalKey = DimHospital.HospitalSK</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="NoOfDays" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="Appoinment_Date" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Gender" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Age" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Country" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="State" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="City" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Zip" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Address" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Email" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="ContactNo" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Occupation" />
+              <ColumnExpression ColumnOwner="DimHospital" ColumnName="HospitalName" />
+              <ColumnExpression ColumnOwner="DimHospital" ColumnName="HospitalType" />
+              <ColumnExpression ColumnOwner="DimHospital" ColumnName="City" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="PatientSK" />
+              <ColumnExpression ColumnOwner="DimDate" ColumnName="Month" />
+              <ColumnExpression ColumnOwner="DimAppointment" ColumnName="TypeOfAddmission" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="FactAttendance" />
+              <Join Type="INNER JOIN" ColumnOwner="DimDate">
+                <On>
+                  <From ColumnOwner="FactAttendance" ColumnName="Appoinment_DateKey" />
+                  <To ColumnOwner="DimDate" ColumnName="DateKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DimPatient">
+                <On>
+                  <From ColumnOwner="FactAttendance" ColumnName="PatientKey" />
+                  <To ColumnOwner="DimPatient" ColumnName="PatientSK" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DimAppointment">
+                <On>
+                  <From ColumnOwner="FactAttendance" ColumnName="AppoinmentKey" />
+                  <To ColumnOwner="DimAppointment" ColumnName="AppoinmentSK" />
+                </On>
+                <On>
+                  <From ColumnOwner="DimPatient" ColumnName="PatientSK" />
+                  <To ColumnOwner="DimAppointment" ColumnName="PatientKey" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="DimHospital">
+                <On>
+                  <From ColumnOwner="DimAppointment" ColumnName="HospitalKey" />
+                  <To ColumnOwner="DimHospital" ColumnName="HospitalSK" />
+                </On>
+              </Join>
+            </Joins>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="NoOfDays">
+          <DataField>NoOfDays</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Appoinment_Date">
+          <DataField>Appoinment_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Gender">
+          <DataField>Gender</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Age">
+          <DataField>Age</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Country">
+          <DataField>Country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="State">
+          <DataField>State</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DimPatient_City">
+          <DataField>DimPatient City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Zip">
+          <DataField>Zip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactNo">
+          <DataField>ContactNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Occupation">
+          <DataField>Occupation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HospitalName">
+          <DataField>HospitalName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HospitalType">
+          <DataField>HospitalType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DimHospital_City">
+          <DataField>DimHospital City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PatientSK">
+          <DataField>PatientSK</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Month">
+          <DataField>Month</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TypeOfAddmission">
+          <DataField>TypeOfAddmission</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet3">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT
+  DimPatient.Gender
+  ,DimPatient.Age
+  ,DimPatient.Country
+  ,DimPatient.[State]
+  ,DimPatient.City
+  ,DimPatient.Zip
+  ,DimPatient.ContactNo
+  ,DimPatient.Occupation
+  ,DimPatient.Address
+  ,FactAttendance.AppoinmentFee
+  ,FactAttendance.PatientID
+  ,FactAttendance.AttendanceID
+  ,FactAttendance.ClinicID
+  ,FactAttendance.AppoinmentID
+  ,FactAttendance.Appoinment_Date
+  ,FactAttendance.NoOfDays
+  ,FactAttendance.TestPrice
+  ,FactAttendance.TotalAmount
+FROM
+  DimPatient
+  INNER JOIN FactAttendance
+    ON DimPatient.PatientSK = FactAttendance.PatientKey</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Gender" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Age" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Country" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="State" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="City" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Zip" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="ContactNo" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Occupation" />
+              <ColumnExpression ColumnOwner="DimPatient" ColumnName="Address" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="AppoinmentFee" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="PatientID" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="AttendanceID" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="ClinicID" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="AppoinmentID" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="Appoinment_Date" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="NoOfDays" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="TestPrice" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="TotalAmount" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="DimPatient" />
+              <Join Type="INNER JOIN" ColumnOwner="FactAttendance">
+                <On>
+                  <From ColumnOwner="DimPatient" ColumnName="PatientSK" />
+                  <To ColumnOwner="FactAttendance" ColumnName="PatientKey" />
+                </On>
+              </Join>
+            </Joins>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="Gender">
+          <DataField>Gender</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Age">
+          <DataField>Age</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Country">
+          <DataField>Country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="State">
+          <DataField>State</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Zip">
+          <DataField>Zip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ContactNo">
+          <DataField>ContactNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Occupation">
+          <DataField>Occupation</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AppoinmentFee">
+          <DataField>AppoinmentFee</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PatientID">
+          <DataField>PatientID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AttendanceID">
+          <DataField>AttendanceID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ClinicID">
+          <DataField>ClinicID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AppoinmentID">
+          <DataField>AppoinmentID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Appoinment_Date">
+          <DataField>Appoinment_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="NoOfDays">
+          <DataField>NoOfDays</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TestPrice">
+          <DataField>TestPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet4">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT
+  DimDepartment.DepartmentName
+  ,DimTest.TestName
+  ,DimTest.[Result]
+  ,FactAttendance.TotalAmount
+  ,FactAttendance.TestPrice
+  ,FactAttendance.NoOfDays
+  ,FactAttendance.PatientID
+  ,FactAttendance.AppoinmentFee
+  ,DimDepartment.DepartmentSK
+  ,DimTest.TestSK
+FROM
+  DimTest
+  INNER JOIN DimDepartment
+    ON DimTest.DepartmentKey = DimDepartment.DepartmentSK
+  INNER JOIN FactAttendance
+    ON DimTest.TestSK = FactAttendance.TestKey</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="DimDepartment" ColumnName="DepartmentName" />
+              <ColumnExpression ColumnOwner="DimTest" ColumnName="TestName" />
+              <ColumnExpression ColumnOwner="DimTest" ColumnName="Result" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="TotalAmount" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="TestPrice" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="NoOfDays" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="PatientID" />
+              <ColumnExpression ColumnOwner="FactAttendance" ColumnName="AppoinmentFee" />
+              <ColumnExpression ColumnOwner="DimDepartment" ColumnName="DepartmentSK" />
+              <ColumnExpression ColumnOwner="DimTest" ColumnName="TestSK" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="DimTest" />
+              <Join Type="INNER JOIN" ColumnOwner="DimDepartment">
+                <On>
+                  <From ColumnOwner="DimTest" ColumnName="DepartmentKey" />
+                  <To ColumnOwner="DimDepartment" ColumnName="DepartmentSK" />
+                </On>
+              </Join>
+              <Join Type="INNER JOIN" ColumnOwner="FactAttendance">
+                <On>
+                  <From ColumnOwner="DimTest" ColumnName="TestSK" />
+                  <To ColumnOwner="FactAttendance" ColumnName="TestKey" />
+                </On>
+              </Join>
+            </Joins>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="DepartmentName">
+          <DataField>DepartmentName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TestName">
+          <DataField>TestName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Result">
+          <DataField>Result</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TotalAmount">
+          <DataField>TotalAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TestPrice">
+          <DataField>TestPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="NoOfDays">
+          <DataField>NoOfDays</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PatientID">
+          <DataField>PatientID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AppoinmentFee">
+          <DataField>AppoinmentFee</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DepartmentSK">
+          <DataField>DepartmentSK</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TestSK">
+          <DataField>TestSK</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="DataSet5">
+      <Query>
+        <DataSourceName>DataSource1</DataSourceName>
+        <CommandText>SELECT
+  DimClinic.ClinicSK
+  ,DimClinic.StartDate
+  ,DimClinic.EndDate
+  ,DimClinic.HospitalKey
+  ,DimClinic.DoctorKey
+  ,DimDoctor.Name
+  ,DimDoctor.Specialization
+  ,DimDoctor.DoctorSK
+FROM
+  DimDoctor
+  INNER JOIN DimClinic
+    ON DimDoctor.DoctorSK = DimClinic.DoctorKey</CommandText>
+        <rd:DesignerState>
+          <QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational">
+            <SelectedColumns>
+              <ColumnExpression ColumnOwner="DimClinic" ColumnName="ClinicSK" />
+              <ColumnExpression ColumnOwner="DimClinic" ColumnName="StartDate" />
+              <ColumnExpression ColumnOwner="DimClinic" ColumnName="EndDate" />
+              <ColumnExpression ColumnOwner="DimClinic" ColumnName="HospitalKey" />
+              <ColumnExpression ColumnOwner="DimClinic" ColumnName="DoctorKey" />
+              <ColumnExpression ColumnOwner="DimDoctor" ColumnName="Name" />
+              <ColumnExpression ColumnOwner="DimDoctor" ColumnName="Specialization" />
+              <ColumnExpression ColumnOwner="DimDoctor" ColumnName="DoctorSK" />
+            </SelectedColumns>
+            <Joins>
+              <Join Type="CROSS JOIN" ColumnOwner="DimDoctor" />
+              <Join Type="INNER JOIN" ColumnOwner="DimClinic">
+                <On>
+                  <From ColumnOwner="DimDoctor" ColumnName="DoctorSK" />
+                  <To ColumnOwner="DimClinic" ColumnName="DoctorKey" />
+                </On>
+              </Join>
+            </Joins>
+          </QueryDefinition>
+        </rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="ClinicSK">
+          <DataField>ClinicSK</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="HospitalKey">
+          <DataField>HospitalKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DoctorKey">
+          <DataField>DoctorKey</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Specialization">
+          <DataField>Specialization</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DoctorSK">
+          <DataField>DoctorSK</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="ReportTitle">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Clinic Details </Value>
+                    <Style>
+                      <FontFamily>Yu Gothic UI Light</FontFamily>
+                      <FontSize>28pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <rd:DefaultName>ReportTitle</rd:DefaultName>
+            <Top>0.63541in</Top>
+            <Left>1.52083in</Left>
+            <Height>0.89236in</Height>
+            <Width>6.21875in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="Tablix5">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1.30208in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.30208in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.30208in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.65625in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox54">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Clinic SK</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox54</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Green</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox56">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Hospital Key</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox56</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Green</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox58">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Start Date</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox58</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Green</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox61">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>End Date</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox61</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>Green</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.65625in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="ClinicSK">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!ClinicSK.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>ClinicSK</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="HospitalKey">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!HospitalKey.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>HospitalKey</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="StartDate">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!StartDate.Value</Value>
+                                  <Style>
+                                    <Format>d</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>StartDate</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="EndDate">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!EndDate.Value</Value>
+                                  <Style>
+                                    <FontFamily>Arial</FontFamily>
+                                    <Format>d</Format>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>EndDate</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet5</DataSetName>
+            <Top>1.67583in</Top>
+            <Left>2.10292in</Left>
+            <Height>1.3125in</Height>
+            <Width>4.90624in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>2.98833in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>9.46875in</Width>
+      <Page>
+        <PageFooter>
+          <Height>1.90833in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>d466d79d-057a-48d6-ac8a-8308e36e1999</rd:ReportID>
+</Report>

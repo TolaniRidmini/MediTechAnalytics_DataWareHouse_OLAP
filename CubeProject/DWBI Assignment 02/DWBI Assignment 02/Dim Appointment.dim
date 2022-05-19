@@ -1,0 +1,331 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="df95d8c2-8c14-4572-8a1b-2b1111baba4d" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Dim Appointment</ID>
+  <Name>Dim Appointment</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="4" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3182" scrolltop="-2318" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10954" y="15901" backcolor="2434342" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimHospital" left="258" top="6819" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3625" height="3995" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000290e00009b0f0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimHospital" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimAppointment" left="20" top="0" logicalid="2" controlid="2" masterid="0" hint1="0" hint2="0" width="4101" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00000510000043110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DimAppointment" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1671" top="4119" logicalid="3" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="15856113" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[FK__DimAppoin__Hospi__0D7A0286]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="2" sourceattachpoint="6" destattachpoint="7" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="2070" y="6819" />
+              <point x="2070" y="4419" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-3182</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-2318</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="bb798e13-6f0f-4d15-80c7-e6c7b30204a8">
+    <DataSourceViewID>DSV_MediTech_Analytics DW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="7971ad04-1c36-4847-a4ed-ad207a37b1b6">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="06c353ea-ecfc-4c5d-a05c-c1097e1f813c">
+      <ID>Appoinment SK</ID>
+      <Name>Appoinment SK</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1019a012-6af9-450d-aecb-354d86632a0a">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="98065b2a-ec29-47a2-bd21-1394bd7c4f9e">
+            <TableID>dbo_DimAppointment</TableID>
+            <ColumnID>AppoinmentSK</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="62d2a9d0-5945-4e96-9e98-a23f26268c5d">
+          <AttributeID>Patient Key</AttributeID>
+          <Name>Patient Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d1c7b622-2cf4-43f9-9edc-54386e8cccd6">
+          <AttributeID>Hospital SK</AttributeID>
+          <Name>Hospital SK</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="107f3f3b-c5b2-4a47-9b41-0095e5c4356e">
+          <AttributeID>Hospital Key</AttributeID>
+          <Name>Hospital Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a5c11176-84d5-428e-b756-5a8518bfa9e0">
+          <AttributeID>Appoinment Date</AttributeID>
+          <Name>Appoinment Date</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="048d8cd5-f733-416c-90d6-4b8186746ba9">
+          <AttributeID>Type Of Addmission</AttributeID>
+          <Name>Type Of Addmission</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4f87391a-e596-449c-999e-4285de42e848">
+          <AttributeID>Alternate Appoinment ID</AttributeID>
+          <Name>Alternate Appoinment ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="95345afd-2215-45d7-acb4-de241359c7d7">
+          <AttributeID>Alternate Hospital ID</AttributeID>
+          <Name>Alternate Hospital ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="567203d4-1391-47f1-9218-8cb70cabf7f5">
+          <AttributeID>Hospital Name</AttributeID>
+          <Name>Hospital Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c992b1b6-428c-424a-98d6-6c317491f4f1">
+          <AttributeID>Hospital Type</AttributeID>
+          <Name>Hospital Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4d61a0d0-78aa-4742-b18a-8dc329e37645">
+          <AttributeID>City</AttributeID>
+          <Name>City</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="769899f9-5882-4ac6-a9ab-236b31bcfb29">
+      <ID>Patient Key</ID>
+      <Name>Patient Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="77d06a46-4945-4ae5-b330-35a2c0348cf4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="13bf87ea-5428-487d-aad6-cdd1c9fe0ff9">
+            <TableID>dbo_DimAppointment</TableID>
+            <ColumnID>PatientKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="97ece678-34a6-41cb-a2f5-1d0bade38476">
+      <ID>Hospital SK</ID>
+      <Name>Hospital SK</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="df427f3c-1122-470b-bf88-37514c24d631">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="177a5043-8f4d-4437-9971-92f8efab2273">
+            <TableID>dbo_DimHospital</TableID>
+            <ColumnID>HospitalSK</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="973f7dc4-20a6-466e-95df-23cb21a72c08">
+      <ID>Hospital Key</ID>
+      <Name>Hospital Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="737e3a6b-a9ae-4431-823d-ea93aec4c543">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="95867f11-f9a3-407f-90be-217ab63efd1e">
+            <TableID>dbo_DimAppointment</TableID>
+            <ColumnID>HospitalKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0bba0af7-ea74-48d8-b01d-956ac020468d">
+      <ID>Appoinment Date</ID>
+      <Name>Appoinment Date</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6edf5090-4f57-42fd-9e48-a6ef760a67e7">
+          <DataType>Date</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bae24345-70a3-495c-8202-8a42c2a583b2">
+            <TableID>dbo_DimAppointment</TableID>
+            <ColumnID>AppoinmentDate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f957f6d7-6b79-4cc2-9565-f81679ad2d9d">
+      <ID>Type Of Addmission</ID>
+      <Name>Type Of Addmission</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="33b077a1-86cb-49f3-930b-3b1b80cc2b38">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a0696e65-5ab4-4727-914e-c8b4ec94fc9c">
+            <TableID>dbo_DimAppointment</TableID>
+            <ColumnID>TypeOfAddmission</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="26d413cc-92fe-49a8-822c-c723406adfd9">
+      <ID>Alternate Appoinment ID</ID>
+      <Name>Alternate Appoinment ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="503e9d00-61c5-42d4-b463-f3b1643c1477">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="703d0452-7a5b-4e14-8bb0-177993b4912d">
+            <TableID>dbo_DimAppointment</TableID>
+            <ColumnID>AlternateAppoinmentID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c7000e4f-1575-4ee6-a513-8de455c14a24">
+      <ID>Alternate Hospital ID</ID>
+      <Name>Alternate Hospital ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c6c85ce9-d982-46f5-9702-d09771505ef6">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bf93fa12-f1df-488b-aa4b-a60b8bfbed44">
+            <TableID>dbo_DimHospital</TableID>
+            <ColumnID>AlternateHospitalID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="126fd78e-8fe4-4319-9866-da6dd660bbe5">
+      <ID>Hospital Name</ID>
+      <Name>Hospital Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6657886b-7836-45fb-bfd0-caa28f447eeb">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3ae74bdb-a92b-4d12-946a-aafec228b118">
+            <TableID>dbo_DimHospital</TableID>
+            <ColumnID>HospitalName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1e6a69fa-d8d5-40b3-9e4f-104628ae4afa">
+      <ID>Hospital Type</ID>
+      <Name>Hospital Type</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f89b23b6-24c7-43aa-b8cc-ad988d7ef010">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a24eedec-e968-4b97-ad0f-e0d63e60bcfd">
+            <TableID>dbo_DimHospital</TableID>
+            <ColumnID>HospitalType</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="422c50b7-6910-40f4-b7af-d5e597a20d0c">
+      <ID>City</ID>
+      <Name>City</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4dba5e1f-f28a-40ed-9d4b-d58b6b7b6a33">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="647dcaa0-e786-4901-a3a8-dc0ab27fcd43">
+            <TableID>dbo_DimHospital</TableID>
+            <ColumnID>City</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
